@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_17_191849) do
+ActiveRecord::Schema.define(version: 2020_06_18_050110) do
+
+  create_table "responses", force: :cascade do |t|
+    t.string "name"
+    t.text "body"
+    t.integer "user_id"
+    t.integer "topic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_responses_on_topic_id"
+  end
 
   create_table "topics", force: :cascade do |t|
     t.integer "user_id"
