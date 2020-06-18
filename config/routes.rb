@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   resources :users, only:[:show, :edit, :update] do
   end
 
+  resources :topics do
+  end
+
   get 'top' => 'topics#index'
 end
