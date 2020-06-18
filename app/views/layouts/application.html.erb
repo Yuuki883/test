@@ -1,15 +1,57 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ThreadApp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <head>
+        <title>ThreadApp</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://kit.fontawesome.com/0038349627.js" crossorigin="anonymous"></script>
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track':
+        'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded">
+            <strong>
+                <%= link_to 'スレッド', top_path, class:"text-light site-title", style:"italic"%>
+            </strong>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbar"
+                aria-controls="navbar"
+                aria-expanded="false"
+                aria-label="ナビゲーションの切替">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-lg-center" id="navbar">
+                <ul class="navbar-nav">
+                    <% if user_signed_in? %>
+                        <li class="nav-item ">
+                            <%= link_to "マイページ", user_path(current_user), class: "nav-link" %>
+                        </li>
+                        <li class="nav-item active">
+                            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:
+                            "nav-link" %>
+                        </li>
+                    <% else %>
+                        <li class="nav-item active">
+                            <%= link_to '登録する', new_user_registration_path, class: "nav-link" %>
+                        </li>
+                        <li class="nav-item active">
+                            <%= link_to 'ログイン', new_user_session_path, class: "nav-link" %>
+                        </li>
+                    </ul>
+                  <% end %>
+            </div>
+        </nav>
+    </header>
 
-  <body>
-    <%= yield %>
-  </body>
+    <body>
+        <%= yield %>
+    </body>
 </html>
