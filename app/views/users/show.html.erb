@@ -1,0 +1,12 @@
+<body>
+  <strong class="text-center">
+    <% if flash[:notice] %>
+    <p class="alert alert-success"><%= flash[:notice] %></p>
+    <% end %>
+  </strong>
+  <br>
+
+  <h1 class="text-align: text-center">
+      <%= @user.name.to_s+"さんのページ" %></a></strong></h1>
+  <%= render 'profile', user: @user,now: ''%>
+</body>
