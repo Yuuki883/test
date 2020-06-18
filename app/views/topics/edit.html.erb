@@ -1,0 +1,22 @@
+<body>
+  <br>
+  <h1 class="text-align: text-center">
+    スレッド編集</h1>
+  <strong class="text-center">
+    <% if flash[:notice] %>
+      <p class="mx-auto alert alert-success"><%= flash[:notice] %></p>
+      <% end %>
+  </strong>
+  <div class="container">
+    <br>
+    <%= form_with model:@topic do |f| %>
+    <form>
+      <h2 class="strong"><%= f.label :タイトル, class:"fas fa-clipboard-list"%></h2>
+      <%= f.text_field :title,class:'form-control'%>
+      <%= f.submit "更新", class:'btn btn-primary btn-lg' %>
+      <%= link_to "削除", topic_path(@topic.id), class:"btn btn-primary btn-lg", method: :delete, data: {confirm: "削除してもよろしいですか？"} %>
+      <%= link_to "掲示板へ", topic_path(@topic.id), class:"btn btn-primary btn-lg" %>
+    </form>
+    <% end %>
+  </div>
+</body>

@@ -1,0 +1,8 @@
+<body>
+  <strong class="text-center">
+    <% if flash[:notice] %>
+      <p class="mx-auto alert alert-success"><%= flash[:notice] %></p>
+    <% end %>
+  </strong>
+  <h1 class="text-center"><strong><%= @topic.title %></strong></h1>
+</body>
