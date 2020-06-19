@@ -8,5 +8,7 @@ Rails.application.routes.draw do
     resource :responses, only: [:create]
   end
 
-  get 'top' => 'topics#index'
+  resources :categories, except: [:new, :show]
+
+  root to: 'topics#index'
 end

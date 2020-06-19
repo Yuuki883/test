@@ -1,0 +1,18 @@
+<body>
+    <br>
+    <h1 class="text-align: text-center">カテゴリ編集</strong></h1>
+    <br>
+  <div class="container">
+    <%= form_with model:@category do |f| %>
+    <form>
+        <h2 class="strong"><%= f.label :カテゴリ名, class:"fas fa-clipboard-list"%></h2>
+        <%= f.text_field :name,class:'form-control'%>
+        <br>
+        <%= f.submit "更新", class:'btn btn-primary btn-lg' %>
+        <%= link_to "削除", category_path(@category.id), class:"btn btn-danger btn-lg",
+        method: :delete, data: {confirm: "削除してもよろしいですか？"} %>
+        <%= link_to "カテゴリ一覧へ", categories_path, class:"btn btn-info btn-lg" %>
+    </form>
+    <% end %>
+  </div>
+</body>
