@@ -5,8 +5,11 @@
       <p class="mx-auto alert alert-success"><%= flash[:notice] %></p>
       <% end %>
   </strong>
-  <h1 class="text-center"><strong><%= @topic.title %></strong>
-  </h1>
+  <h1 class="text-center"><strong><%= @topic.title %></strong></h1>
+  <p class="text-center">[カテゴリ]
+    <% @topic.categories.each do |category| %>
+      <%= category.name %>
+    <% end %></p>
     <div class="container">
       <div class="row">
         <div class='mx-auto'>
