@@ -1,12 +1,14 @@
 <body>
-  <div class="text-center">
-    <br>
-    <h1 class="fas fa-chalkboard-teacher">スレッド</h1>
+  <br>
+  <h1 class="text-align: text-center">スレッド</h1>
+  <br>
+  <strong class="text-center">
     <% if flash[:notice] %>
     <p class="alert alert-danger"><%= flash[:notice] %></p>
     <% end %>
-    <br>
-    <table class="table table-hover">
+  </strong>
+  <br>
+    <table class="text-center table table-hover">
       <thead>
         <tr>
           <th>タイトル</th>
@@ -30,21 +32,21 @@
       </div>
     </div>
   </div>
-<div class="card mx-auto" style="width: 700px">
-  <div class="container">
-    <br>
-    <h2 class="text-align: text-center">
-      <strong>スレッド作成</strong></h2>
-    <div class="mx-auto">
-      <%= form_with model:@topic, local: true do |f| %>
-      <form>
-        <h2 class="strong"><%= f.label :タイトル, class:"fas fa-clipboard-list"%></h2>
-        <%= f.text_field :title, class:'form-control' %>
-        <br>
-        <%= f.submit "作成", class:"btn btn-primary btn-lg"%>
-      </form>
-      <% end %>
+  <div class="card mx-auto" style="width: 700px">
+    <div class="container">
+      <br>
+      <h2 class="text-align: text-center">
+        <strong>スレッド作成</strong></h2>
+      <div class="mx-auto">
+        <%= form_with model:@topic, local: true do |f| %>
+        <form>
+          <h3 class><%= f.label :タイトル, class:"fas fa-clipboard-list"%></h3>
+          <%= f.text_field :title, class:'form-control' %>
+          <br>
+          <%= f.submit "作成", class:"btn btn-primary btn-lg"%>
+        </form>
+        <% end %>
+      </div>
     </div>
-  </div>
   </div>
 </body>
