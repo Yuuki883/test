@@ -9,9 +9,8 @@
 ・ログイン  
 ・ログイン状態の保持  
 ・ページネーション (kaminariを使用)  
-・ 
 
 # 環境
 ■フレームワーク  
-　Ruby on Rails  
-  Bootstrap4
+・Ruby on Rails  
+・Bootstrap4
