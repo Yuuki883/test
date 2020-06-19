@@ -1,0 +1,45 @@
+<body>
+    <strong class="text-center">
+        <% if flash[:notice] %>
+            <p class="alert alert-success"><%= flash[:notice] %></p>
+        <% end %>
+    </strong>
+    <br>
+    <h1 class="text-align: text-center">カテゴリ一覧</strong></h1>
+    <br>
+  <div class="container">
+    <div class="row">
+        <div class="col-xs-3">
+            <strong class="categorytitle">カテゴリ</strong>
+            <div class="field">
+                <%= form_with model:@category, local: true do |f| %>
+                <%= f.text_field :name, :placeholder => "カテゴリ名を入力"%>
+                <br>
+                <br>
+                <%= f.submit '追加', class:"submitbtn btn btn-primary btn-block" %>
+              <% end %>
+            </div>
+        </div>
+      <br>
+      <div class="col-md-10">
+        <table class='text-center table table-hover'>
+            <thead>
+                <tr>
+                    <th>カテゴリ名</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @categories.each do |category| %>
+                    <tr>
+                        <td><%= category.name %></td>
+                        <td><%= link_to "編集", edit_category_path(category), class: "btn-sm btn-info" %>
+                        </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
