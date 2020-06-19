@@ -1,24 +1,17 @@
-# README
+# アプリケーションの概要
+・スレッドアプリ
+  
+# アプリケーションの機能
+・スレッド機能
+・カテゴリ機能
+・レス機能
+・検索（Ransackを使用)  
+・ログイン  
+・ログイン状態の保持  
+・ページネーション (kaminariを使用)  
+・ 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 環境
+■フレームワーク  
+　Ruby on Rails  
+  Bootstrap4
