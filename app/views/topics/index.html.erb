@@ -2,6 +2,19 @@
   <br>
   <h1 class="text-align: text-center">スレッド</h1>
   <br>
+  <div class="col-lg-4 col-md-7 mx-auto">
+    <div class="form-group">
+      <%= search_form_for @q do |f| %>
+      <div class="input-group">
+        <%= f.search_field :title_cont, class:'form-control', :placeholder => "スレッドを検索" %>
+        <div class="input-group-append">
+          <%= button_tag(class: "fas fa-search") do %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
   <strong class="text-center">
     <% if flash[:notice] %>
     <p class="alert alert-danger"><%= flash[:notice] %></p>
