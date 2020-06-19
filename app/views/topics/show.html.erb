@@ -1,8 +1,42 @@
 <body>
+  <br>
   <strong class="text-center">
     <% if flash[:notice] %>
       <p class="mx-auto alert alert-success"><%= flash[:notice] %></p>
-    <% end %>
+      <% end %>
   </strong>
-  <h1 class="text-center"><strong><%= @topic.title %></strong></h1>
+  <h1 class="text-center"><strong><%= @topic.title %></strong>
+  </h1>
+    <div class="container">
+      <div class="row">
+        <div class='mx-auto'>
+          <div class="card" style="width: 700px">
+            <% @responses.each do |f| %>
+            <div class="card-body">
+              <div class="card-title">
+                <strong><%= f.name %></strong>
+                <small><%= f.created_at.strftime("%Y-%m-%d %H:%M") %></small>
+              </div>
+              <div class="card-text">
+                <%= safe_join(f.body.split("\n"), tag(:br)) %>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="mx-auto">
+        <br>
+          <div class="card" style="width: 700px">
+          <br>
+          <p class="text-center fas fa-comment">コメント</p>
+            <%= form_with model:@response, url: topic_responses_path(@topic) do |f| %>
+              <%= f.text_field :name, class: "form-control", :placeholder => "名前" %>
+              <%= f.text_area :body, class:'form-control', :placeholder => "コメント内容" %>
+              <br>
+              <%= f.submit 'コメントを送信', class:'btn btn-primary'%>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
 </body>

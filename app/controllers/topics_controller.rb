@@ -10,6 +10,8 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    @response = Response.new
+    @responses = @topic.responses
   end
 
   def create

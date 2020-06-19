@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :topics do
+    resource :responses, only: [:create]
   end
 
   get 'top' => 'topics#index'
